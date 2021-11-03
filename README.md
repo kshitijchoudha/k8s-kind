@@ -24,3 +24,7 @@
 
 NOTES:
 > WSL has some problem to run on port 5000
+
+Todo
+
+1. setup ingress
