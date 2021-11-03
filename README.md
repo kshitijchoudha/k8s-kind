@@ -1,6 +1,6 @@
  
 - build docker image `docker build --tag python-docker:1.0.0 .`
-- Run docker image on host daemon(skip tp deploy on k8s0) `docker run -d -p 3232:3232 python-docker:1.0.0` 
+- Run docker image on host daemon(skip tp deploy on k8s) `docker run -d -p 3232:3232 python-docker:1.0.0` 
 
 - create kind cluster `kind create cluster --config kind-example-config.yaml`
 
@@ -30,4 +30,4 @@ NOTES:
 > 
 
 Todo
->how to change nginx ingress port
+>Try with changing nginx ingress port
