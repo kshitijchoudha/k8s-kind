@@ -15,14 +15,19 @@
     - start proxy `kubectl proxy`  (kill if already running, find process by `ps -ef | grep "kubectl proxy"`)
     - access dashboard http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
+- deploy nginx ingress `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml`
+
 - deploy service to cluster `kubectl apply -f deployment.yaml`
 
-- port forward to host `kubectl port-forward hello-python-977689748-9jkml 3232:3232`
+- [WSL]port forward to host `kubectl port-forward <pod-name> 3232:3232`
 
-- test service `curl http://localhost:3232`
+- [WSL] test service `curl http://localhost:3232`
+- on linux this should work without port forward if ingress is setup correctly by running `curl localhost/hello`
 
 
 NOTES:
-> WSL has some problem to run on port 5000
+> WSL is not working with ingress on port 80, not able to change ingress port number configuration.
+> 
 
 Todo
+>how to change nginx ingress port
