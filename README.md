@@ -23,6 +23,7 @@
 
 - deploy service to cluster `kubectl apply -f deployment.yaml`
 - test service `curl http://localhost:3232/hello`
+- Linux test `curl http://localhost/hello`
 
 Notes:
 > - WSL is not working with ingress on port 80 (likely because port is occupied by docker desktop)
