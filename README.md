@@ -1,7 +1,7 @@
 # Deploy with k8s kind cluster
 
 - build docker image `docker build --tag python-docker:1.0.0 .`
-- Run docker image on host daemon(skip tp deploy on k8s) `docker run -d -p 3232:3232 python-docker:1.0.0` 
+- Run docker image on host daemon(skip tp deploy on k8s) `docker run -d -p 3232:3232 python-docker:1.0.0`
 
 - create kind cluster `kind create cluster --config kind-example-config.yaml` (use linux file when starting on linux)
 
