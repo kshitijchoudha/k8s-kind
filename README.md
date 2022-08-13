@@ -7,7 +7,6 @@
 
 - push dcoker image to kind cluster `kind load docker-image python-docker:1.0.0`  , see <https://iximiuz.com/en/posts/kubernetes-kind-load-docker-image/>
 
-
 - set up k8s dashboard admin and access dashboard - <https://upcloud.com/community/tutorials/deploy-kubernetes-dashboard/>
 
   - install dashboard <https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/>
