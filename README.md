@@ -12,7 +12,7 @@
   - install dashboard <https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/>
   - `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml`
   - Disable login - `kubectl patch deployment kubernetes-dashboard -n kubernetes-dashboard --type 'json' -p '[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--enable-skip-login"}]'`
- (no need for next steps if diabling login)
+ (no need for next steps if disabling login)
   - create dashboard admin `kubectl apply -f dashboard-admin.yaml`
   - get secret `kubectl get secret -n kubernetes-dashboard $(kubectl get serviceaccount admin-user -n kubernetes-dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode`
   - start proxy `kubectl proxy`  (kill if already running, find process by `ps -ef | grep "kubectl proxy"`)
