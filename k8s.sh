@@ -8,7 +8,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 
 kubectl wait deployment -n ingress-nginx ingress-nginx-controller --for condition=Available=True --timeout=120s
 
-sleep 90
+until echo "waiting for nginx"; sleep 5; curl http://localhost/ | grep "nginx"; do : ; done
+sleep 60
 
 kubectl apply -f deployment.yaml
 
@@ -18,4 +19,5 @@ kubectl get pods
 
 kubectl get ingress
 
+sleep 15
 curl http://localhost/hello
