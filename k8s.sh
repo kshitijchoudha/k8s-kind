@@ -6,8 +6,11 @@ kind load docker-image python-docker:1.0.0
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-kubectl wait deployment -n ingress-nginx ingress-nginx-controller --for condition=Available=True --timeout=120s
-
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+  
 until echo "waiting for nginx"; sleep 5; curl http://localhost/ | grep "nginx"; do : ; done
 sleep 60
 
