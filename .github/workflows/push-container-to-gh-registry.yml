@@ -2,7 +2,7 @@ name: push-container-to-gh-registry
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   push:
-    branches: ['release']
+    branches: ['master']
 
 env:
   REGISTRY: ghcr.io
