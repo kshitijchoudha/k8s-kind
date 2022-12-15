@@ -9545,7 +9545,7 @@ metadata:
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/name: gitops-agent
     app.kubernetes.io/part-of: gitops-agent
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -9555,7 +9555,7 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: gitops-agent
     app.kubernetes.io/part-of: argocd
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   namespace: default
 rules:
   - apiGroups:
@@ -9721,7 +9721,7 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: gitops-agent
     app.kubernetes.io/part-of: argocd
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
 rules:
   - apiGroups:
       - '*'
@@ -9825,28 +9825,28 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: gitops-agent
     app.kubernetes.io/part-of: argocd
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
 subjects:
   - kind: ServiceAccount
-    name: harness-gitops-agent-agent
+    name: gitops-agent-agent
     namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
 subjects:
   - kind: ServiceAccount
-    name: harness-gitops-agent-agent
+    name: gitops-agent-agent
     namespace: default
 roleRef:
   kind: ClusterRole
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
@@ -10563,17 +10563,17 @@ metadata:
   labels:
     app.kubernetes.io/name: gitops-agent-secret
     app.kubernetes.io/part-of: argocd
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   namespace: default
 type: Opaque
 stringData:
   GITOPS_AGENT_TOKEN: |
-    LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFdlFJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0JLY3dnZ1NqQWdFQUFvSUJBUURFQjNyR25ndSsxNS9xCkU3RXd6Y2JGdGxzcDhyNmtaUS90N21FbGxnTDg3K2cvYklCSTJ2dWRnMlZ0UGxZdFpYVGtRekFDQzh5Q2d6NEoKN3JMcnJBdG16Qkh0Y0g2eUI5dnRtQ0srd3ZNUDI2a2JmT3ZSZE05MkRmTFZNdEk0OVYrUDAwTnpZUFI1S0xmTwpac25FbjhjazRMTXd6Z1pxYUJpWDVtNXNDZGQ5UnptZlZOMXl5Z0Q0S1A3azAyL2QxY2pIZ2dscEJid0puMEc3ClBxWkp5enp6Y0svWS9TaEJtQ0IyZ3N2eTFyWWhRMHoyV2U4WC90RlRjVWdlYjV4azBycDljM1JKT1JkZUQrVnYKR1lOZERXQzFmZDIrNWZLbUQ0UjVWQmw4ZWNjTHdsSklOUTJzN3d5TjJqa2F2RmNTaDNDSVIvOFVITXlPVGxtNAp2aHRhU0d5cEFnTUJBQUVDZ2dFQkFMQm9UcnVvaE1ka1FmdWpad1NWV2ZpWXgyZHpsTTVhU0VDRkVoV0I3d1J5ClhSMmVaYitxbVY1QlhhZzJ2ZFN5aGNQWkZyM3dva1VkR0ZwVjNkdXFBc1NxaHNPWFJkeXVwK01qMHJpNnRZT2kKMklidEgwWnFDVHlqQnRHSG41azBiNS85cmFpS0t0ZFJwajl2VHNuTVE2bFRNTTZOeVVZK2tVczVTa3VkZTdlMwpLcUtiQ3hoc0h1RFcxVHJLbUVMR2lNZDl2QWphZ2UrOHhFVk5vR2VRYUhsOGJEYmhqb0JTckJYU3Rna05LVkZvCjN1M1hxeStZSTZzcmZzdC9pYkdRTC9SMWJPUXNYQVpvNEhtTmVhZmRSTlZWcDhHVGkrY0ZxK0MrYS9sSVBieWcKN3loWHlUVndxaWVDRnVNUlFtWHp3YkNqcUpzYmQ0VDJOV1A4MFpZNi8wVUNnWUVBMk5aQS9VVk1sSlljTWRweAppUkxQUWkvTHRuMEdveDdkZGNKKzQydmplTU0vdU92MzkxU0crWkJxMG5TSjQxM2xhR3BLaXJEdEZaUllkN1FPCkp1MFVxNWJzVGowMlpCWk9yRHlJKzJrcFNNcnV4RVJ0S1NYTlBxMEp3WUM0ZkQ5c1NxbUdYdDloRkVlZ3NyL2EKVkUwNUp6RWhKUE9zam8xQ25wZzE5eW5EbWVNQ2dZRUE1MjhuUElUcUh3cUJFZWxOaXlXVHc3c2Q2b3NlY2xSYgp0bldBSWV3a3dLK1BaYkc1S3JncW03VmtaSTJFaEZNZHVBQUFWWkxmdTJTK3ZKRFB4SUcwYklzZHNkcG1YcnF5ClA2UTlCMUhWQzYxaEgyaytEQWxvb0pYMDlhRWN0T3Rwa1cwbzZ3NE1nczFIaDh5K0VvV3Bndnk2eWpYaGpZVGcKcmJuLzh6K0tGUU1DZ1lBbXFHd0Z1MmtmeEhOYVgvdUYySmlpMENxZGFrVFlxQlFMZnBWb3JqOXJ0RU9VRUYydwo5cHpwdVZtU0U3elJrRmZwK2FrNGVMcUw4bHFqWExKNU5pTk5SQ2IwKyt6S2d6K2JiVjl1a3gwTklVRFlOT3JSClB6QU1VSVZBdmxZbHNKajU1cWRTR3JrUUNJVVoyU0p2alNUM1c4Ync4NUI4Q2FzcTR6QWIxSkpPeVFLQmdDSmoKWjhjY1VOVnY4Q0hETXR4OEp1cXNnUk42dkhsc2czd25GWFQwNjdrZDNRYlZVNWcvYVVWZHZKOGNVQmFCYXljTwpDUDZ1SmtSb0FkZHZCUkJEM1pWTFRveEEwWGs5OElKNFd3RWRiYlNnZkkvNFNWbnNnL2xvanM5NHN4Vkc3WmJJClM0NHh0all4WG5HVlFLRHI3M1loSzNna2JYRmp6eWJCUG9EY2JoNFZBb0dBVE5oRGFQQk5rbExEcElyR0NjT0UKeUIyOW5KRGUvSlRqcmRhSGZ4bUNDVk40bjB2ZjU4T0JBT094VXlTcnBTRU9PREhRQktTUS9ZSys2M0lKbDl5dQoyVys2RUZuM2FibG1lR29BWXgrR2dNVjhRN1h2d2IrazNreTJ0dG9Pby8xMDZSQnYrSGpzMUJHdWFEa05TZ2ltCnZadGdTK0QxaXliQUVja0t3MmYxNnVzPQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+    LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFdkFJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0JLWXdnZ1NpQWdFQUFvSUJBUUM1Y09aTHByb0IxL2FlCjB0WHArSkJjZjcxN1pDZFNaTU5CVVlxd285NThVT2FhbTU5VmdxSkJaV3lYTXB6eERSVzRySmtvRHd2ZG1kVk0KS3U5eEQzVGpSZk1XR2NWVzZHUTlhK3RoT0g2Tks0RkQrVGExeSt1WWpYWXpIcDJHZnBhV21BdVUxbUtxNGhNbgpLclU4aHZqNWx6MVBwVnlCN0JjQy9acktRTDdCNnJxei9Razgwd2ZGODFMZWs0Sy9BWWFiakRFTVdlV1VweWEvCjFBbFlKT0pUdHZWSVliVWxYajhMTGd2OHh4MUxCUFF6ankrK3NyaUhYOFd5TFB2elEzNUx5TFV2d2RMK3cyeFQKRUpTMnRKQko2aXFxWlhkR2VWZzFSNERKRXZXZjhrVDVNNTduNkxPZUxZbnVyUWh1SkVNZy9WdUNCajVzdnA5MwpHL0ZLNndzeEFnTUJBQUVDZ2dFQVFQQStWV092WTVIak5UOFQxZmxMWkhqL084U1kySXVjckxVSFlsQWdTMXh4ClJOY1dkdlZtS0l5QitIaXE2T2J5SWxlZTBwNWlRMW5wamVERE5NNTYybFBXaW5pLzJHMU5IUTA3d2pIc2J6YzYKN3pqSVplVmhQV3pjWlk1bEQ0SW83ZGVVeHF4RXBSN0NJa2NjYkhPL29IZkw2cVkzdk8rV0oxL3o0cnZGa1ZZdQp1NHVHZWhabVNVajJpeHZDZktCaHQxemswYTlwa0R4c1hmUURicHJ4bWw3MFBjVmwvVkU2QXhVRkROVnBNcHZwCmswYVozVGY1dnBRZHNkL3Jsc2ZXM1hXOWlOMUtsWk9TQW9UemtmUXM5U25rendsOFNMMUhRQ2hkYldKMU8xY3IKM2RWSnVrc1cyOVBkZk9KTG5aYVh2cXB1K213MVlYWW1taWVQcXdWVGdRS0JnUURyTVZ1a3Bvd1dWbW93RWlOagpvUzRmYnNUMWdiU2E2Vmpza0RIUkRIR0hma25hK29NeUx6YU9aM0ZzcmF1VzJxMmNXd1oyT0xhVEJ5WnUzVFBDCkhMWHRZWHRCdzBWamFJR3lYdTJTdGRHdzcyQm5jR21zdllwTENWellqcjR5d3BZclU0dm96WUZVSEUyNlFMMWQKaFRsdGw4cFp0Y3o2L3B0aFdLbGZTQ3FJS1FLQmdRREoyTU9YeXBVelFIaW10b3lTRE5EOVl3RnAwN3FFS2hGTApMbjNjekU5VzcreHFYVW42ZkxZcVJFN2hqQkxwMDZ3amxZUElGK21OVW83cU5TMERENDlQWm9Pc2diY2pVdWN0CllaN1M1Zll1cGdZR3JmMHVrVTRBRDFlMXdBaE0wL3crNUh6Y0pURkNqOVQwUjkrTi80bGs3VEFXcGIvRXpsR08KWW5lTUhWVnJ5UUtCZ0RjbHlLNVAyeE0xeWdwaGhtakxGMnlKWmFlSGRWakpsRzlMMUZLSFQydU00aloxZlNQYwpURGVSNjllbTFWQTNFSFJVSjZ5NjJaeWFGWm56UmpxaXpzbk5qTUE3MEY1aDE5K0NRTVNnMjMxWWM4dHRZV24rCnU1bWlwV0dsL3RVYUtXb1pXZm9KamVTeUNrdTgrR29nWGZuam1LLzJZQTBPZkZLVUhvclgraGtaQW9HQU4wZnIKd2IzVkFSVnVOZEtYUzBUQlZEUnlaYVo4VmNnanRtQ0VUaDJTdVMrNm95THJxUFBRL0dCNjdpRHI2U2gwNDhZRwpNcDRCOUJlaFZwbTd1elBldnhOSGlzNTM5dSswcXVRcW1INHMzM2ZPL0xOWVBSSEV1QlY3b3laMTMzekxmL29hCkREMFBjYmhzelg2RnhxRXU0dnBuQ2p6WStiQzcrM0FTWjhoODVha0NnWUI4enp5Z0tHcjNDckJZRWpqSjVqU00KMmM4a0NPZEhIZ1hORjdrVzlLQmo4dzhYdXorcFdheCsrbktENjhGdUdBWkFlYUhQVVBMRmxXRzBmUnM0OVpaUAp3NG93bDEwUUxTZFk4MjhjTzF6cE9sRW5VRjJEVDhVSk5tcUpOSjg3bWFDNElpUGtScG1sWDFqMkxsTzVXQXpMCitVNjVvSVBVaGVsT2ROc2J5WnZxR0E9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
 ---
 apiVersion: v1
 data:
   GITOPS_ACCOUNT_IDENTIFIER: 9S4tqOcyQkeFXybZvJt6fA
-  GITOPS_AGENT_IDENTIFIER: harnessgitopsagent
+  GITOPS_AGENT_IDENTIFIER: gitopsagent
   GITOPS_ORG_IDENTIFIER: default
   GITOPS_PROJECT_IDENTIFIER: Default_Project_1671068007356
 
@@ -10595,7 +10595,7 @@ metadata:
     app.kubernetes.io/component: agent
     app.kubernetes.io/name: gitops-agent-cm
     app.kubernetes.io/part-of: argocd
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   namespace: default
 ---
 apiVersion: apps/v1
@@ -10605,7 +10605,7 @@ metadata:
     app.kubernetes.io/component: agent
     app.kubernetes.io/name: gitops-agent
     app.kubernetes.io/part-of: argocd
-  name: harness-gitops-agent-agent
+  name: gitops-agent-agent
   namespace: default
 spec:
   replicas: 1
@@ -10619,7 +10619,7 @@ spec:
         app.kubernetes.io/name: gitops-agent
         app.kubernetes.io/part-of: argocd
     spec:
-      serviceAccountName: harness-gitops-agent-agent
+      serviceAccountName: gitops-agent-agent
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -10643,9 +10643,9 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: harness-gitops-agent-agent
+                name: gitops-agent-agent
             - secretRef:
-                name: harness-gitops-agent-agent
+                name: gitops-agent-agent
           volumeMounts:
             - mountPath: /app/config/ssh
               name: ssh-known-hosts
@@ -10694,21 +10694,21 @@ data:
   config.yaml: |
     mode: GitopsAgent
     dryRun: false
-    workloadName: harness-gitops-agent-agent
+    workloadName: gitops-agent-agent
     namespace: default
     containerName: gitops-agent
     gitopsAgentConfig:
       gitopsServerHost: https://app.harness.io/gratis/gitops
 kind: ConfigMap
 metadata:
-  name: harness-gitops-agent-agent-upgrader
+  name: gitops-agent-agent-upgrader
   namespace: default
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   namespace: default
-  name: harness-gitops-agent-agent-upgrader
+  name: gitops-agent-agent-upgrader
 rules:
   - apiGroups: ["batch", "apps", "extensions"]
     resources: ["cronjobs"]
@@ -10720,27 +10720,27 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: harness-gitops-agent-agent-upgrader
+  name: gitops-agent-agent-upgrader
   namespace: default
 subjects:
   - kind: ServiceAccount
-    name: harness-gitops-agent-agent-upgrader
+    name: gitops-agent-agent-upgrader
     namespace: default
 roleRef:
   kind: Role
-  name: harness-gitops-agent-agent-upgrader
+  name: gitops-agent-agent-upgrader
   apiGroup: ""
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: harness-gitops-agent-agent-upgrader
+  name: gitops-agent-agent-upgrader
   namespace: default
 ---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: harness-gitops-agent-agent-upgrader
+  name: gitops-agent-agent-upgrader
   namespace: default
 spec:
   schedule: "0 */4 * * *"
@@ -10750,7 +10750,7 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: harness-gitops-agent-agent-upgrader
+          serviceAccountName: gitops-agent-agent-upgrader
           containers:
             - name: upgrader
               image: harness/upgrader:latest
@@ -10766,5 +10766,6 @@ spec:
           volumes:
             - name: config-volume
               configMap:
-                name: harness-gitops-agent-agent-upgrader
+                name: gitops-agent-agent-upgrader
           restartPolicy: Never
+          
