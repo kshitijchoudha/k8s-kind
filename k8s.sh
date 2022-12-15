@@ -18,6 +18,8 @@ kubectl apply -f deployment.yaml
 
 kubectl wait deployment -n default hello-python --for condition=Available=True --timeout=90s
 
+kubectl apply -f harness-delegate.yml
+
 kubectl get pods
 
 kubectl get ingress
