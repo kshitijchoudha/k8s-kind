@@ -20,6 +20,8 @@ kubectl wait deployment -n default hello-python --for condition=Available=True -
 
 kubectl apply -f harness-delegate.yml
 
+kubectl apply -f gitops-agent.yml -n default
+
 kubectl get pods
 
 kubectl get ingress
