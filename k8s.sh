@@ -1,4 +1,4 @@
-cd ~/work/git/python-docker
+cd ~/work/git/k8s-kind
 
 docker build --tag python-docker:1.0.0 .
 kind create cluster --config kind-example-config-linux.yaml 
